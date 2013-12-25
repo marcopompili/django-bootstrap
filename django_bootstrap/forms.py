@@ -6,7 +6,6 @@ Created on 22/dic/2013
 
 from django import forms
 
-from .widgets import BootstrapInputCtrlGroup
 from django.forms.forms import DeclarativeFieldsMetaclass
 from django.utils import six
 from django.utils.safestring import mark_safe
@@ -101,9 +100,3 @@ class BootstrapBaseForm(forms.BaseForm):
 class BootstrapForm(six.with_metaclass(DeclarativeFieldsMetaclass, BootstrapBaseForm)):
     "A collection of Fields, plus their associated data."
     pass
-
-    
-class BootStrapCharFieldCtrlGrp(forms.CharField):
-    widget = BootstrapInputCtrlGroup()
-    input_addon = None
-    
