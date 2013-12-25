@@ -86,11 +86,20 @@ class BootstrapBaseForm(forms.BaseForm):
                 output.append(str_hidden)
         return mark_safe('\n'.join(output))
     
-    def as_bt_grp(self):
+    def as_bt_ctrl_grp(self):
         "Returns this form rendered as Bootstrap HTML control-group form."
         return self._bt_html_output(
             label_attrs = { 'class' : 'control-label' },
             normal_row='<div class="control-group">%(label)s<div class="controls"><div class="input-group">%(field)s</div>%(help_text)s</div></div>',
+            error_row='',
+            row_ender='</div>',
+            help_text_html='<p class="help-block">%s</p>',
+            errors_on_separate_row=False)
+    
+    def as_bt_grp(self):
+        "Returns this form rendered as Bootstrap HTML control-group form."
+        return self._html_output(
+            normal_row='<div class="form-group">%(label)s%(field)s%(help_text)s</div>',
             error_row='',
             row_ender='</div>',
             help_text_html='<p class="help-block">%s</p>',
