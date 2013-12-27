@@ -9,7 +9,7 @@ from django.utils.html import format_html
 from django.forms.util import flatatt
 from django.forms.widgets import Textarea, TextInput
 
-class BootstrapInputCtrlGroup(TextInput):
+class BootstrapTextInput(TextInput):
     required = False
     
     def render(self, name, value, attrs=None):
@@ -25,7 +25,7 @@ class BootstrapInputCtrlGroup(TextInput):
         return format_html('<input{0} class="form-control"/>', flatatt(final_attrs))
 
 
-class BootstrapTextareaCtrlGroup(Textarea):
+class BootstrapTextarea(Textarea):
     required = False
     
     def render(self, name, value, attrs=None):
